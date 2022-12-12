@@ -1,0 +1,53 @@
+<h1 style="margin-bottom: 15px;">
+  <i class="material-icons">segment</i> Segmentos
+  <button style="float: right;" mat-raised-button color="warn" [routerLink]="['/segmentoCreate']"> <i class="material-icons">add</i> Adicionar Segmento</button>
+</h1>
+<div class="container">
+
+  <div class="mat-elevation-z8">
+    <table class="table" style="background-color: #fff;">
+      <thead style="border-bottom: 1px solid black; bottom: 15px;">
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">Nome</td>
+        <td></td>
+        <td></td>
+      </thead>
+      <tbody>
+        <tr *ngFor="let segmento of allSegmento">
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;"> {{ segmento.nome }}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 10px;">
+            <button mat-icon-button [routerLink]="['/segmentoUpdate',segmento.id]" color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </th>
+          <th style="font-weight: normal;text-align: center; padding-top: 10px;">
+            <button mat-icon-button color="warn" (click)="onDelete(segmento.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+
+<form>
+  <div class="modal fade" tabindex="-1" id="deleteModal" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Tem certeza de excluir este item?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" (click)="deleteSegmento()">Confirm Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+

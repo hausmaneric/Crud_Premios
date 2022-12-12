@@ -1,0 +1,12 @@
+<div *ngIf="ok">
+  <mat-toolbar *ngIf="mostrarMenu" class="header mat-elevation-z4">
+    <span>
+      <a routerLink="/">
+        <i class="material-icons"></i>
+        <h1 (click)="deslogar()" class="title" style="color: white;">{{nomeUsuario}}</h1>
+      </a>
+    </span>
+    <button style="position:absolute; right: 1%; background-color: #2c2c2c; border: none; color: white;" (click)="deslogar()" class="mat-nav-button"><i class="material-icons">logout</i></button>
+  </mat-toolbar>
+</div>
+

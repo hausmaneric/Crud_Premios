@@ -1,0 +1,28 @@
+<div style="height: 600px;" class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+          <h4>Por favor, entre com seu e-mail e senha</h4>
+        </div>
+        <form>
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input [(ngModel)]="usuarioForm.login" type="email" name="email" matInput placeholder="E-mail...">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input [(ngModel)]="usuarioForm.senha" name="senha" type="password" matInput placeholder="Senha...">
+          </mat-form-field>
+
+          <div style="padding-top: 8px; float: right;" mat-dialog-actions [align]="'end'">
+            <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="login()">Logar</button>
+          </div>
+        </form>
+        <!-- <a style="color: #fff; text-decoration: none;"  routerLink="/signup"> New user? Click to signup</a> -->
+      </div>
+    </div>
+  </div>
+</div>

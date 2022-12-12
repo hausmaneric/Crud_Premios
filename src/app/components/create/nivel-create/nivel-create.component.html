@@ -1,0 +1,17 @@
+<h1 style="margin-bottom: 15px;">
+  <i class="material-icons">show_chart</i> Nível
+</h1>
+<div class="container">
+
+  <form >
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input [(ngModel)]="nivelForm.nome" name="nivelNome" matInput placeholder="Nome...">
+    </mat-form-field>
+
+    <div style="padding-top: 8px; float: right;" mat-dialog-actions [align]="'end'">
+      <button mat-raised-button color="warn" (click)="gotoList()">Cancelar</button>
+      <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="createNivel()">Salvar</button>
+    </div>
+  </form>
+</div>

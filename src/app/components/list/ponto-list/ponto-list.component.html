@@ -1,0 +1,64 @@
+<h1 style="margin-bottom: 15px;">
+  <i class="material-icons">radio_button_checked</i> Pontos Ganhos
+  <button style="float: right;" mat-raised-button color="warn" [routerLink]="['/pontoCreate']"> <i class="material-icons">add</i> Adicionar Pontos</button>
+</h1>
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Filtro
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <form>
+          <mat-checkbox style="font-size: 16px;" class="example-margin" (click)="searchPontoValido()" [(ngModel)]="pontoForm.valido" name="profissionalAtivo">Validos</mat-checkbox>
+          <br>
+          <mat-form-field appearance="outline" style="float: left;width:92%">
+            <mat-label>Informe o profossional:</mat-label>
+            <input [(ngModel)]="pontoForm.nomeprofissional" name="profissionalNome" matInput placeholder="Nome...">
+          </mat-form-field>
+          <button style="width:50px;float: left;height: 50px;background:#2c2c2c;border-radius:5px;margin-top: 5px;color:#fff" mat-icon-button (click)="searchPonto()">
+            <mat-icon>search</mat-icon>
+          </button>
+        </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br>
+  <div class="clear"></div>
+
+  <div class="mat-elevation-z8">
+    <table class="table" style="background-color: #fff;">
+      <thead style="border-bottom: 1px solid black; bottom: 15px;">
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">Profissional</td>
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">Validade</td>
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">Quantidade</td>
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">Saldo</td>
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">Utilizado</td>
+        <td></td>
+        <!-- <td></td> -->
+      </thead>
+      <tbody>
+        <tr *ngFor="let ponto of allPonto">
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;">{{ ponto.nomeprofissional_1 }}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;">{{ ponto.validade | date : 'dd/MM/yyyy'}}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;">{{ ponto.quantidade }}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;">{{ ponto.saldo }}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;">{{ ponto.utilizado }}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 10px;">
+            <button mat-icon-button [routerLink]="['/pontoUpdate',ponto.id]" color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </th>
+          <!-- <th  style="font-weight: normal;text-align: center; padding-top: 10px;">
+            <button mat-icon-button color="warn" (click)="onDelete(ponto.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </th> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+

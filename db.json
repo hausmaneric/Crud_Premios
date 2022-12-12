@@ -1,0 +1,197 @@
+{
+  "profissional": [
+    {
+      "id": 2,
+      "nome": "Fabricio",
+      "email": "hausman.info@gmail.com",
+      "telefone": "(24) 98882-9222",
+      "segmento": "Programadores",
+      "data": "2022-09-30T03:00:00.000Z",
+      "ativo": true,
+      "nivel": "Desenvolvedores"
+    }
+  ],
+  "nivel": [
+    {
+      "id": 1,
+      "nome": "Báscio"
+    },
+    {
+      "id": 2,
+      "nome": "Médio"
+    },
+    {
+      "id": 3,
+      "nome": "Master"
+    }
+  ],
+  "ponto": [
+    {
+      "id": 1,
+      "profissional": "Fabricio",
+      "data": "2022-09-24T03:00:00.000Z",
+      "validade": "2022-09-30T03:00:00.000Z",
+      "saldo": 1,
+      "quantidade": 4,
+      "informacao": "dsfsdfds",
+      "utilizado": 3
+    },
+    {
+      "id": 2,
+      "profissional": "Riane",
+      "data": null,
+      "validade": "",
+      "saldo": 0,
+      "quantidade": 3,
+      "informacao": "",
+      "utilizado": 3
+    },
+    {
+      "id": 5,
+      "profissional": "Fabricio",
+      "data": "2022-09-09T03:00:00.000Z",
+      "validade": "2022-09-24T03:00:00.000Z",
+      "saldo": 49,
+      "quantidade": 51,
+      "informacao": "venda do cliente do mata atlantica",
+      "utilizado": 2
+    }
+  ],
+  "pc": [
+    {
+      "id": 1,
+      "premio": "Teste",
+      "profissional": "Fabricio",
+      "data": "2022-10-11T03:00:00.000Z",
+      "limite": "2022-10-22T03:00:00.000Z",
+      "pontos": 4,
+      "utilizado": false
+    },
+    {
+      "id": 2,
+      "premio": "gfg",
+      "profissional": "",
+      "data": "2022-10-20T03:00:00.000Z",
+      "limite": "2022-09-23T03:00:00.000Z",
+      "pontos": 2,
+      "utilizado": false,
+      "profissional_id": "2"
+    },
+    {
+      "id": 3,
+      "premio": "gfg",
+      "profissional": "",
+      "data": "2022-10-19T03:00:00.000Z",
+      "limite": "2022-10-21T03:00:00.000Z",
+      "pontos": 2,
+      "utilizado": false,
+      "profissional_id": "2"
+    },
+    {
+      "id": 4,
+      "premio": "gfg",
+      "profissional": "",
+      "data": "2022-10-13T03:00:00.000Z",
+      "limite": "2022-10-20T03:00:00.000Z",
+      "pontos": 2,
+      "utilizado": false,
+      "profissional_id": "2"
+    }
+  ],
+  "premio": [
+    {
+      "id": 1,
+      "titulo": "Teste",
+      "descricao": "Teste",
+      "publicacao": "2022-09-22T03:00:00.000Z",
+      "validade": "2022-09-29T03:00:00.000Z",
+      "pontos": 12,
+      "nivel": "Arquiteto",
+      "quantidade": 5,
+      "valido": true,
+      "utilizado": 2
+    },
+    {
+      "id": 3,
+      "titulo": "gfg",
+      "descricao": "gfgfg",
+      "publicacao": "2022-09-15T03:00:00.000Z",
+      "validade": "2022-09-30T03:00:00.000Z",
+      "pontos": 2,
+      "nivel": "Master",
+      "quantidade": 2,
+      "valido": true,
+      "utilizado": 1,
+      "imagem": "",
+      "imageId": 0
+    },
+    {
+      "id": 4,
+      "titulo": "fgfg",
+      "descricao": "fgffg",
+      "publicacao": "2022-09-30T03:00:00.000Z",
+      "validade": "2022-09-30T03:00:00.000Z",
+      "pontos": 2,
+      "nivel": "Master",
+      "quantidade": 2,
+      "valido": true,
+      "utilizado": 0,
+      "imagem": "C:\\fakepath\\WhatsApp Image 2022-08-16 at 21.58.18.jpeg",
+      "imageId": 0
+    },
+    {
+      "id": 5,
+      "titulo": "Viagem",
+      "descricao": "Viagem para bem longe",
+      "publicacao": "2022-10-18T03:00:00.000Z",
+      "validade": "2022-10-19T03:00:00.000Z",
+      "pontos": 50,
+      "nivel": "Médio",
+      "quantidade": 5,
+      "valido": true,
+      "utilizado": 0,
+      "imagem": "",
+      "imageId": 0
+    },
+    {
+      "id": 6,
+      "titulo": "Teste",
+      "descricao": "Saldo de mercadoria",
+      "publicacao": "2022-10-19T03:00:00.000Z",
+      "validade": "2022-10-20T03:00:00.000Z",
+      "pontos": 4,
+      "nivel": "Master",
+      "quantidade": 2,
+      "valido": true,
+      "utilizado": 0,
+      "imagem": "",
+      "imageId": 0
+    }
+  ],
+  "usuario": [
+    {
+      "id": 3,
+      "nome": "Eric",
+      "login": "eric.hausman.m@gmail.com",
+      "senha": "1234",
+      "nivel": 3
+    },
+    {
+      "id": 4,
+      "nome": "Pedro",
+      "login": "eric.hausman.m@hotmail.com.br",
+      "senha": "1234",
+      "nivel": 3
+    }
+  ],
+  "segmento": [
+    {
+      "id": 1,
+      "nome": "Programadores"
+    }
+  ],
+  "imagens": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

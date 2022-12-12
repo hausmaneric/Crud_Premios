@@ -1,0 +1,60 @@
+<h1 style="margin-bottom: 15px;">
+  <i class="material-icons">redeem</i> Prêmios
+  <button style="float: right;" mat-raised-button color="warn" [routerLink]="['/premioCreate']"> <i class="material-icons">add</i> Adicionar Prêmio</button>
+</h1>
+<div class="container">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Filtro
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <form>
+          <mat-checkbox style="font-size: 16px;" class="example-margin" (click)="searchPremioValido()" [(ngModel)]="premioForm.valido" name="profissionalAtivo">Validos</mat-checkbox>
+          <br>
+          <mat-form-field appearance="outline" style="float: left;width:92%">
+            <mat-label>Informe o titulo:</mat-label>
+            <input [(ngModel)]="premioForm.titulo" name="profissionalNome" matInput placeholder="Titulo...">
+          </mat-form-field>
+          <button style="width:50px;float: left;height: 50px;background:#2c2c2c;border-radius:5px;margin-top: 5px;color:#fff" mat-icon-button (click)="searchPremio()">
+            <mat-icon>search</mat-icon>
+          </button>
+        </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br>
+  <div class="clear"></div>
+
+  <div class="mat-elevation-z8">
+    <mat-card  class="card_info" *ngFor="let premio of allPremio">
+      <div class="img">
+        <img [src]="premio.image" alt="">
+      </div>
+      <div class="info">
+        <h3>Titulo: {{ premio.titulo }}</h3>
+        <p style="color: #808183;">Descrição: {{ premio.descricao }}</p>
+        <p style="color: #808183;">Expira em: {{ premio.validade | date : 'dd/MM/yyyy'}}</p>
+      </div>
+
+      <div class="info_1">
+        <p style="color: #ed1c24;"> {{ premio.pontos }} Pontos</p>
+        <P style="color: #4d76b1;">Nível: {{ premio.nivelnome_1 }}</P>
+        <p style="color: #4d76b1;">Quantidade: {{ premio.quantidade }}</p>
+        <p style="color: #4d76b1;">Utilizados: {{ premio.utilizado }}</p>
+      </div>
+
+      <div class="info_actions">
+        <button mat-icon-button [routerLink]="['/premioUpdate',premio.id]" color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button style="margin-left: 20px;" color="warn" (click)="onDelete(premio.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+

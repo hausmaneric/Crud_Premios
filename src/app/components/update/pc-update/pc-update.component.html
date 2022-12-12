@@ -1,0 +1,47 @@
+<h1 style="margin-bottom: 15px;">
+  <i class="material-icons">co_present</i> Prêmio Capturado
+</h1>
+<div class="container">
+  <form>
+
+    <label>Prêmio</label>
+    <select name="profissionalData" [(ngModel)]="pcForm.premio" placeholder="Prêmio...">
+      <option *ngFor="let premios of premio" value="{{ premios.id }}">{{ premios.titulo }}</option>
+    </select>
+
+    <label>Profissional</label>
+    <select name="profissionalNivel" [(ngModel)]="pcForm.profissional" placeholder="Profissional...">
+      <option *ngFor="let profissionais of profissional" value="{{ profissionais.id }}">{{ profissionais.nome }}</option>
+    </select>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data</mat-label>
+      <input name="profissionalData" [(ngModel)]="pcForm.data" name="data" matInput [matDatepicker]="pickerr">
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="pickerr"></mat-datepicker-toggle>
+      <mat-datepicker #pickerr></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Limite</mat-label>
+      <input name="profissionalData" [min]="pcForm.data" [(ngModel)]="pcForm.limite" name="limite" matInput [matDatepicker]="picker">
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Pontos</mat-label>
+      <input type="number" [(ngModel)]="pcForm.pontos" min="0" name="ponto" matInput placeholder="Pontos...">
+    </mat-form-field>
+    <br>
+    <div *ngIf="pcForm.imagepremio">
+      <img src="{{pcForm.imagepremio}}" name="image" width="200px" height="200px" alt="">
+    </div>
+
+    <div style="padding-top: 8px; float: right;" mat-dialog-actions [align]="'end'">
+      <button mat-raised-button color="warn" (click)="gotoList()">Cancelar</button>
+      <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="updatePc()">Salvar</button>
+    </div>
+  </form>
+</div>

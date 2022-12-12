@@ -1,0 +1,63 @@
+<h1 style="margin-bottom: 15px;">
+  <i class="material-icons">engineering</i> Profissionais
+  <button style="float: right;" mat-raised-button color="warn" [routerLink]="['/profissionalCreate']"> <i class="material-icons">add</i> Adicionar Profissional</button>
+</h1>
+<div class="container">
+
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Filtro
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <form>
+          <mat-form-field appearance="outline" style="float: left;width:92%">
+            <mat-label>Informe o nome:</mat-label>
+            <input [(ngModel)]="profissionalForm.nome" name="profissionalNome" matInput placeholder="Nome...">
+          </mat-form-field>
+          <button style="width:50px;float: left;height: 50px;background:#2c2c2c;border-radius:5px;margin-top: 5px;color:#fff" mat-icon-button (click)="searchProfissional()">
+            <mat-icon>search</mat-icon>
+          </button>
+        </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br>
+  <div class="clear"></div>
+
+  <div class="mat-elevation-z8">
+    <table class="table" style="background-color: #fff;">
+      <thead style="border-bottom: 1px solid black; bottom: 15px;">
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">Nome</td>
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">E-mail</td>
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">Telefone</td>
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">Segmento</td>
+        <td style="font-weight: bold; text-align: center; padding: 15px 0;">Nível</td>
+        <td></td>
+        <td></td>
+      </thead>
+      <tbody>
+        <tr *ngFor="let profissional of allProfissional">
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;"> {{ profissional.nome }}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;">{{ profissional.email }}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;">{{ profissional.telefone }}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;">{{ profissional.nomesegmento_1 }}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 20px;">{{ profissional.nomenivel_1 }}</th>
+          <th style="font-weight: normal;text-align: center; padding-top: 10px;">
+            <button mat-icon-button [routerLink]="['/profissionalUpdate',profissional.id]" color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </th>
+          <th style="font-weight: normal;text-align: center; padding-top: 10px;">
+            <button mat-icon-button color="warn" (click)="onDelete(profissional.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+

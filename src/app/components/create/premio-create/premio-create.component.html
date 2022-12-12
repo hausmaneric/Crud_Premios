@@ -1,0 +1,88 @@
+<h1 style="margin-bottom: 15px;">
+  <i class="material-icons">redeem</i> Prêmio
+  <button style="float: right; margin-top: 10px;" mat-raised-button color="primary" (click)="gotoList()"> <i class="material-icons"></i> Finalizar</button>
+</h1>
+<div class="container">
+<mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+  <form>
+    <ng-template matStepLabel>Dados do prêmio</ng-template>
+    <mat-form-field appearance="outline">
+      <mat-label>Título</mat-label>
+      <input name="premioTitulo" [(ngModel)]="premioForm.titulo" id="premioTitulo" required matInput placeholder="Título...">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição</mat-label>
+      <input name="premioDescricao" [(ngModel)]="premioForm.descricao" id="premioDescricao" required matInput placeholder="Descrição...">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Publicação</mat-label>
+      <input name="premioPublicacao" [(ngModel)]="premioForm.publicado" id="premioPublicacao" required matInput [matDatepicker]="pickerr">
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="pickerr"></mat-datepicker-toggle>
+      <mat-datepicker #pickerr></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Validade</mat-label>
+      <input name="premioValidade" [min]="premioForm.publicado" [(ngModel)]="premioForm.validade" id="premioValidade" required matInput [matDatepicker]="picker">
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Pontos</mat-label>
+      <input type="number" [(ngModel)]="premioForm.pontos" min="0" id="premioPontos" name="premioPontos" required matInput placeholder="Pontos...">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nível</mat-label>
+      <mat-select name="premioNivel" [(ngModel)]="premioForm.nivel" id="premioNivel" required placeholder="Nível...">
+        <mat-option *ngFor="let niveis of nivel" value="{{ niveis.id }}">{{ niveis.nome }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Quantidade</mat-label>
+      <input type="number" [(ngModel)]="premioForm.quantidade" id="premioQuantidade" min="0" name="premioQuantidade" required matInput placeholder="Quantidade...">
+    </mat-form-field>
+
+    <input type="file" name="images" (change)="onChange($event)">
+    <div *ngIf="premioForm.image">
+      <img src="{{premioForm.image}}" name="image" width="200px" height="200px" alt="">
+    </div>
+    <br>
+
+    <div>
+      <button mat-button class="btn_salvar" matStepperNext (click)="createPremio()">Salvar Prêmio</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form>
+      <ng-template matStepLabel>Images</ng-template>
+      <input type="file" name="images" (change)="onChangeImg($event)">
+      <div *ngIf="imgForm.imagem">
+        <img src="{{imgForm.imagem}}" name="image" width="200px" height="200px" alt="">
+      </div>
+      <div>
+        <button mat-button class="btn_salvar" matStepperNext (click)="createImage()">Salvar Imagem</button>
+      </div>
+    </form>
+    <div class="container">
+      <div class="images">
+        <div class="image" *ngFor="let image of img">
+          <img src="{{ image.imagem }}" alt="">
+          <div class="actions">
+            <button class="btn_delete" mat-icon-button color="warn" (click)="onDeleteImage(image.id, image.prod_id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-step>
+</mat-stepper>

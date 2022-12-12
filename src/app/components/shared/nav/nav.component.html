@@ -1,0 +1,43 @@
+<mat-sidenav-container class="nav-container" style="height:94.8% !important; overflow-y: hidden;">
+  <mat-sidenav  #sidenav class="sidenav" mode="side" closed  style="position:absolute; top:100px; height:100%!important; overflow-y: hidden;" fixedTopGap="0">
+    <mat-list *ngIf="mostrarMenu" style="height:100% !important; overflow-y: hidden;" class="mat-list">
+      <a mat-list-item routerLink="/profissional">
+        <i class="material-icons">engineering</i>
+        Profissionais
+      </a>
+      <a mat-list-item routerLink="/premio">
+        <i class="material-icons">redeem</i>
+        Prêmios
+      </a>
+      <a mat-list-item routerLink="/ponto">
+        <i class="material-icons">radio_button_checked</i>
+        Pontos Ganhos
+      </a>
+      <a mat-list-item routerLink="/pc">
+        <i class="material-icons">co_present</i>
+        Prêmios Capturados
+      </a>
+      <a mat-list-item routerLink="/segmento">
+        <i class="material-icons">segment</i>
+        Segmentos
+      </a>
+      <a mat-list-item routerLink="/nivel">
+        <i class="material-icons">show_chart</i>
+        Nívies
+      </a>
+      <a mat-list-item routerLink="/usuario">
+        <i class="material-icons">person</i>
+        Usuários
+      </a>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content" style="height:100%;">
+    <button *ngIf="mostrarMenu" mat-icon-button (click)="sidenav.toggle()" class="mat-nav-button">
+      <i class="material-icons">menu</i>
+    </button>
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

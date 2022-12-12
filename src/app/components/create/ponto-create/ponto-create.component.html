@@ -1,0 +1,42 @@
+<h1 style="margin-bottom: 15px;">
+  <i class="material-icons">radio_button_checked</i> Ponto Ganho
+</h1>
+<div class="container">
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Profissional</mat-label>
+      <mat-select name="pontoProfissional" [(ngModel)]="pontoForm.profissional" id="pontoProfissional" placeholder="Profissional...">
+        <mat-option *ngFor="let profissionais of profissional" value="{{ profissionais.id }}">{{ profissionais.nome }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data</mat-label>
+      <input name="data" [(ngModel)]="pontoForm.data" name="data" matInput [matDatepicker]="pickerr">
+      <mat-datepicker-toggle matSuffix [for]="pickerr"></mat-datepicker-toggle>
+      <mat-datepicker #pickerr></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Validade</mat-label>
+      <input name="profissionalData" [min]="pontoForm.data" [(ngModel)]="pontoForm.validade" name="validade" matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Quantidade</mat-label>
+      <input type="number" [(ngModel)]="pontoForm.quantidade"  min="0"name="quantidade" matInput placeholder="Quantidade...">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Informações</mat-label>
+      <textarea [(ngModel)]="pontoForm.informacao" name="informacao" matInput></textarea>
+    </mat-form-field>
+
+    <div style="padding-top: 8px; float: right;" mat-dialog-actions [align]="'end'">
+      <button mat-raised-button color="warn" (click)="gotoList()">Cancelar</button>
+      <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="createPonto()">Salvar</button>
+    </div>
+  </form>
+</div>

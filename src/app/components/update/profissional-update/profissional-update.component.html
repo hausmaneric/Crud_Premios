@@ -1,0 +1,46 @@
+<h1 style="margin-bottom: 15px;">
+  <i class="material-icons">engineering</i> Profissional
+</h1>
+<div class="container">
+
+  <form>
+    <mat-form-field appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input [(ngModel)]="profissionalForm.nome" name="profissionalNome" matInput placeholder="Nome...">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input name="profissionalEmail" [(ngModel)]="profissionalForm.email"  name="email" matInput placeholder="E-mail...">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Telefone</mat-label>
+      <input type="tel" name="telefone"  [(ngModel)]="profissionalForm.telefone" matInput mask="(00) 00000-0000" placeholder="Telefone...">
+    </mat-form-field>
+
+    <label>Segmento</label>
+    <select name="profissionalSegmento" [(ngModel)]="profissionalForm.segmento" placeholder="Segmento...">
+      <option *ngFor="let segmentos of segmento" value="{{ segmentos.id }}">{{ segmentos.nome }}</option>
+    </select>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data</mat-label>
+      <input name="profissionalData" [(ngModel)]="profissionalForm.data" name="data" matInput [matDatepicker]="pickerr">
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="pickerr"></mat-datepicker-toggle>
+      <mat-datepicker #pickerr></mat-datepicker>
+    </mat-form-field>
+
+    <label>Nível</label>
+    <select name="nivel" [(ngModel)]="profissionalForm.nivel" placeholder="Nível...">
+      <option *ngFor="let niveis of nivel" value="{{ niveis.id }}">{{ niveis.nome }}</option>
+    </select>
+    <mat-checkbox class="example-margin" [(ngModel)]="profissionalForm.ativo" name="profissionalAtivo">Ativo</mat-checkbox>
+
+    <div style="padding-top: 8px; float: right;" mat-dialog-actions [align]="'end'">
+      <button mat-raised-button color="warn" (click)="gotoList()">Cancelar</button>
+      <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="updateProfissional()">Salvar</button>
+    </div>
+  </form>
+</div>
