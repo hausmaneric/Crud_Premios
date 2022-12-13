@@ -29,24 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    //this.usuarioService.logar(this.usuarioForm.login, this.usuarioForm.senha);
-    this.router.navigate(['home'])
-
-    // this.usuarioService.getUsuario().subscribe(res=>{
-    //   const user = res.find((a: any) =>{
-    //     return a.login === this.usuarioForm.login && a.senha === this.usuarioForm.senha
-    //   });
-    //   if(user){
-    //     this.Autenticado = true;
-    //     this.usuarioService.mostrarMenuEmitter.emit(true);
-    //     this.router.navigate(['home']);
-    //   }else{
-    //     alert("usuário não encontrado")
-    //     this.usuarioService.mostrarMenuEmitter.emit(false);
-    //   }
-    // },error=>{
-    //   alert("Somethin went wrong");
-    // })
+    this.usuarioService.logar(this.usuarioForm.login, this.usuarioForm.senha);
   };
 
 }
