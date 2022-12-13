@@ -29,7 +29,8 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.usuarioService.logar(this.usuarioForm.login, this.usuarioForm.senha);
+    //this.usuarioService.logar(this.usuarioForm.login, this.usuarioForm.senha);
+    this.router.navigate(['home'])
 
     // this.usuarioService.getUsuario().subscribe(res=>{
     //   const user = res.find((a: any) =>{
