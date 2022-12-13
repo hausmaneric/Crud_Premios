@@ -22,11 +22,11 @@ export class UsuarioService {
   nome!: string;
 
   getUsuario(){
-    return this.http.get<Usuario[]>("http://18.231.197.66:8080/api/clientes");
+    return this.http.get<Usuario[]>(`18.231.197.66:8080/api/clientes`);
   }
 
   createUsuario(payLoad:Usuario){
-    return this.http.post<Usuario>("http://18.231.197.66:8080/api/clientes", payLoad);
+    return this.http.post<Usuario>(`http://18.231.197.66:8080/api/clientes`, payLoad);
   }
 
   getByIdUsuario(id:number){
