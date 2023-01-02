@@ -10,34 +10,34 @@ export class PcService {
   constructor(private http:HttpClient) { }
 
   getPc(){
-    return this.http.get<Pc[]>("http://18.231.197.66:8080/api/pc");
+    return this.http.get<Pc[]>("http://18.231.197.66/api/pc");
   }
 
   createPc(payLoad:Pc){
-    return this.http.post<Pc>("http://18.231.197.66:8080/api/pc", payLoad);
+    return this.http.post<Pc>("http://18.231.197.66/api/pc", payLoad);
   }
 
   getByIdPc(id:number){
-    return this.http.get<Pc>(`http://18.231.197.66:8080/api/pc/${id}`);
+    return this.http.get<Pc>(`http://18.231.197.66/api/pc/${id}`);
   }
 
   updatePc(payLoad:Pc){
-    return this.http.put(`http://18.231.197.66:8080/api/pc/${payLoad.id}`,payLoad);
+    return this.http.put(`http://18.231.197.66/api/pc/${payLoad.id}`,payLoad);
   }
 
   deletePc(id:number){
-    return this.http.delete<Pc>(`http://18.231.197.66:8080/api/pc/${id}`);
+    return this.http.delete<Pc>(`http://18.231.197.66/api/pc/${id}`);
   }
 
   searchPcProfissional(nomeprofissional:string){
-    return this.http.get<Pc>(`http://18.231.197.66:8080/api/pcprofissionalsearch/${nomeprofissional}`);
+    return this.http.get<Pc>(`http://18.231.197.66/api/pcprofissionalsearch/${nomeprofissional}`);
   }
 
   searchPcPremio(nomepremio:string){
-    return this.http.get<Pc>(`http://18.231.197.66:8080/api/pcpremiosearch/${nomepremio}`);
+    return this.http.get<Pc>(`http://18.231.197.66/api/pcpremiosearch/${nomepremio}`);
   }
 
   searchPcUtilizado(valido:number){
-    return this.http.get<Pc>(`http://18.231.197.66:8080/api/pcsearchvalido/${valido}`);
+    return this.http.get<Pc>(`http://18.231.197.66/api/pcsearchvalido/${valido}`);
   }
 }
