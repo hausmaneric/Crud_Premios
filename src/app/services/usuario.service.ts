@@ -22,23 +22,23 @@ export class UsuarioService {
   nome!: string;
 
   getUsuario(){
-    return this.http.get<Usuario[]>(`http://18.231.197.66:8080/api/clientes`);
+    return this.http.get<Usuario[]>(`http://18.231.197.66/api/clientes`);
   }
 
   createUsuario(payLoad:Usuario){
-    return this.http.post<Usuario>(`http://18.231.197.66:8080/api/clientes`, payLoad);
+    return this.http.post<Usuario>(`http://18.231.197.66/api/clientes`, payLoad);
   }
 
   getByIdUsuario(id:number){
-    return this.http.get<Usuario>(`http://18.231.197.66:8080/api/clientes/${id}`);
+    return this.http.get<Usuario>(`http://18.231.197.66/api/clientes/${id}`);
   }
 
   updateUsuario(payLoad:Usuario){
-    return this.http.put(`http://18.231.197.66:8080/api/clientes/${payLoad.id}`,payLoad);
+    return this.http.put(`http://18.231.197.66/api/clientes/${payLoad.id}`,payLoad);
   }
 
   deleteUsuario(id:number){
-    return this.http.delete<Usuario>(`http://18.231.197.66:8080/api/clientes/${id}`);
+    return this.http.delete<Usuario>(`http://18.231.197.66/api/clientes/${id}`);
   }
 
   logar(login: string, senha: string){
