@@ -10,30 +10,30 @@ export class PontoService {
   constructor(private http:HttpClient) { }
 
   getPonto(){
-    return this.http.get<Ponto[]>("http://18.231.197.66:8080/api/ponto");
+    return this.http.get<Ponto[]>("http://18.231.197.66/api/ponto");
   }
 
   createPonto(payLoad:Ponto){
-    return this.http.post<Ponto>("http://18.231.197.66:8080/api/ponto", payLoad);
+    return this.http.post<Ponto>("http://18.231.197.66/api/ponto", payLoad);
   }
 
   getByIdPonto(id:number){
-    return this.http.get<Ponto>(`http://18.231.197.66:8080/api/ponto/${id}`);
+    return this.http.get<Ponto>(`http://18.231.197.66/api/ponto/${id}`);
   }
 
   updatePonto(payLoad:Ponto){
-    return this.http.put(`http://18.231.197.66:8080/api/ponto/${payLoad.id}`,payLoad);
+    return this.http.put(`http://18.231.197.66/api/ponto/${payLoad.id}`,payLoad);
   }
 
   deletePonto(id:number){
-    return this.http.delete<Ponto>(`http://18.231.197.66:8080/api/ponto/${id}`);
+    return this.http.delete<Ponto>(`http://18.231.197.66/api/ponto/${id}`);
   }
 
   searchPonto(nomeprofissional:string){
-    return this.http.get<Ponto>(`http://18.231.197.66:8080/api/pontosearch/${nomeprofissional}`);
+    return this.http.get<Ponto>(`http://18.231.197.66/api/pontosearch/${nomeprofissional}`);
   }
 
   searchPontoValido(valido:number){
-    return this.http.get<Ponto>(`http://18.231.197.66:8080/api/pontosearchvalido/${valido}`);
+    return this.http.get<Ponto>(`http://18.231.197.66/api/pontosearchvalido/${valido}`);
   }
 }
